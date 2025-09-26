@@ -15,7 +15,11 @@ DJANGO_APP = [ 'django.contrib.admin',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',]
-APPLICATION_APP=[ 'pages.apps.PagesConfig',]
+
+APPLICATION_APP=[ 'pages.apps.PagesConfig',
+                 'listings.apps.ListingsConfig',
+                 'doctors.apps.DoctorsConfig'
+                 ]
 INSTALLED_APPS = DJANGO_APP + APPLICATION_APP 
 
 MIDDLEWARE = [
