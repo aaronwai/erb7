@@ -103,7 +103,6 @@
       {% for listing in listings %}
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card listing-preview">
-          {% comment %} img {% endcomment %}
           <img class="card-img-top" src="{{listing.photo_main.url}}" alt="" />
           <div class="card-img-overlay"></div>
           <div class="card-body">
@@ -145,7 +144,7 @@
             </div>
             <hr />
             {% comment %} listing {% endcomment %}
-            <a href="listing.html" class="btn btn-primary btn-block"
+            <a href={% url "listings:listing" listing.id %} class="btn btn-primary btn-block"
               >More Info</a
             >
           </div>
