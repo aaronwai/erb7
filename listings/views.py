@@ -30,7 +30,7 @@ def search(request):
     if 'rooms' in request.GET:
         rooms = request.GET['rooms']
         if rooms:
-            queryset_list = queryset_list.filter(rooms__lte=rooms) 
+            queryset_list = queryset_list.filter(rooms__gte=rooms) 
     if 'room_type' in request.GET:
         room_type = request.GET['room_type']
         if room_type:
