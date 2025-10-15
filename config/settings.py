@@ -19,12 +19,14 @@ DJANGO_APP = [ 'django.contrib.admin',
     'django.contrib.humanize',
     "debug_toolbar",
     'taggit',
+    'widget_tweaks',
     ]
 
 APPLICATION_APP=[ 'pages.apps.PagesConfig',
                  'listings.apps.ListingsConfig',
                  'doctors.apps.DoctorsConfig',
                  'accounts.apps.AccountsConfig',
+                 'contacts.apps.ContactsConfig', 
                  ]
 INSTALLED_APPS = DJANGO_APP + APPLICATION_APP 
 
@@ -67,7 +69,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'clinic',
         'USER': 'postgres',
-        'PASSWORD': '1234',
+        'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -127,3 +129,11 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success',
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_PORT = 587  
+EMAIL_USE_TLS = True  
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # Your email address
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # Your email password or app-specific password
+DEFAULT_FROM_EMAIL = 'your_email@example.com' # Default sender for emails
